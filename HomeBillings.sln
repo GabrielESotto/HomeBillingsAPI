@@ -13,25 +13,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identidade", "Identidade", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1CD4C41B-5BC5-4BE3-8170-027647CD0BB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Core", "src\BuildingBlocks\HomeBillings.Core\HomeBillings.Core.csproj", "{DFB0577A-1D63-4DCA-8E63-BF4DAB80F2E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBillings.Core", "src\BuildingBlocks\HomeBillings.Core\HomeBillings.Core.csproj", "{DFB0577A-1D63-4DCA-8E63-BF4DAB80F2E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contas", "Contas", "{5DE08E64-3FED-4BE9-892B-FB3F4470ACCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Contas.API", "src\Services\Contas\HomeBillings.Contas.API\HomeBillings.Contas.API.csproj", "{1B9DCF08-9393-433F-B4CC-C8232D063BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBillings.Contas.API", "src\Services\Contas\HomeBillings.Contas.API\HomeBillings.Contas.API.csproj", "{1B9DCF08-9393-433F-B4CC-C8232D063BD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gastos", "Gastos", "{8212B0F7-C067-4F86-A772-6CF3AA4B38BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Gastos.API", "src\Services\Gastos\HomeBillings.Gastos.API\HomeBillings.Gastos.API.csproj", "{EFF7715E-8A21-4674-B5BF-14C9FE3C312E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBillings.Gastos.API", "src\Services\Gastos\HomeBillings.Gastos.API\HomeBillings.Gastos.API.csproj", "{EFF7715E-8A21-4674-B5BF-14C9FE3C312E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usuario", "Usuario", "{78C1B0EE-8923-4320-BF9A-B622A26A8830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Usuario.API", "src\Services\Usuario\HomeBillings.Usuario.API\HomeBillings.Usuario.API.csproj", "{D555F7B8-5600-4795-B01C-DC9BC61324D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBillings.Usuario.API", "src\Services\Usuario\HomeBillings.Usuario.API\HomeBillings.Usuario.API.csproj", "{D555F7B8-5600-4795-B01C-DC9BC61324D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Investimentos", "Investimentos", "{8A75A0F2-640F-4794-808A-CA8FD1E2577A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Investimentos.API", "src\Services\Investimentos\HomeBillings.Investimentos.API\HomeBillings.Investimentos.API.csproj", "{8C0BBCF2-6E8B-405A-9749-FE214D64671F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBillings.Investimentos.API", "src\Services\Investimentos\HomeBillings.Investimentos.API\HomeBillings.Investimentos.API.csproj", "{8C0BBCF2-6E8B-405A-9749-FE214D64671F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Identidade.API", "src\Services\Identidade\HomeBillings.Identidade.API\HomeBillings.Identidade.API.csproj", "{5A05E9CD-B5E3-4A8F-9EBD-60AC7E146621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeBillings.Identidade.API", "src\Services\Identidade\HomeBillings.Identidade.API\HomeBillings.Identidade.API.csproj", "{5A05E9CD-B5E3-4A8F-9EBD-60AC7E146621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entradas", "Entradas", "{6E1683C6-DF29-4DB6-BCF9-CA3779797B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBillings.Entradas.API", "src\Services\Entradas\HomeBillings.Entradas.API\HomeBillings.Entradas.API.csproj", "{D1D434C0-D454-4271-B529-FDCF43F7A6B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,10 @@ Global
 		{5A05E9CD-B5E3-4A8F-9EBD-60AC7E146621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A05E9CD-B5E3-4A8F-9EBD-60AC7E146621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A05E9CD-B5E3-4A8F-9EBD-60AC7E146621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D434C0-D454-4271-B529-FDCF43F7A6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D434C0-D454-4271-B529-FDCF43F7A6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D434C0-D454-4271-B529-FDCF43F7A6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D434C0-D454-4271-B529-FDCF43F7A6B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +90,8 @@ Global
 		{8A75A0F2-640F-4794-808A-CA8FD1E2577A} = {744BBED0-D33C-40EB-B7EB-2A5ABA056739}
 		{8C0BBCF2-6E8B-405A-9749-FE214D64671F} = {8A75A0F2-640F-4794-808A-CA8FD1E2577A}
 		{5A05E9CD-B5E3-4A8F-9EBD-60AC7E146621} = {C8CC5036-EC6A-4123-B693-D5B80519E2DC}
+		{6E1683C6-DF29-4DB6-BCF9-CA3779797B87} = {744BBED0-D33C-40EB-B7EB-2A5ABA056739}
+		{D1D434C0-D454-4271-B529-FDCF43F7A6B1} = {6E1683C6-DF29-4DB6-BCF9-CA3779797B87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A01CCBE6-07B6-47B8-9990-86C7F1622BB2}

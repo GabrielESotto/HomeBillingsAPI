@@ -1,4 +1,4 @@
-﻿namespace HomeBillings.Identidade.API.Extensions
+﻿namespace HomeBillings.Core.Identidade
 {
     public class AppSettings
     {

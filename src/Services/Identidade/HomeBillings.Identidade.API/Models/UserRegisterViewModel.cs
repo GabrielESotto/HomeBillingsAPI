@@ -2,7 +2,7 @@
 
 namespace HomeBillings.Identidade.API.Models
 {
-    public class UserRegister
+    public class UserRegister : User
     {
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [EmailAddress(ErrorMessage = "O campo {0} precisa ter um formato válido")]

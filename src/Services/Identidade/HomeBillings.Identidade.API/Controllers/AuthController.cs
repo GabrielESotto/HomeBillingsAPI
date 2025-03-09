@@ -1,5 +1,8 @@
-﻿using HomeBillings.Identidade.API.Extensions;
+﻿using EasyNetQ;
+using HomeBillings.Core.Identidade;
+using HomeBillings.Core.Integration;
 using HomeBillings.Identidade.API.Models;
+using HomeBillings.Usuario.API.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -17,6 +20,7 @@ namespace HomeBillings.Identidade.API.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
+        private IBus _bus;
 
         public AuthController(SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
@@ -41,7 +45,11 @@ namespace HomeBillings.Identidade.API.Controllers
 
             var result = await _userManager.CreateAsync(user, userRegister.Password);
 
-            if (result.Succeeded) return CustomResponse(await GenerateJwt(userRegister.Email));
+            if (result.Succeeded)
+            {
+                var success = await RegisterUser(userRegister);
+                return CustomResponse(await GenerateJwt(userRegister.Email));
+            }
 
             foreach (var error in result.Errors)
             {
@@ -140,6 +148,25 @@ namespace HomeBillings.Identidade.API.Controllers
                     Claims = claims.Select(c => new UserClaim { Type = c.Type, Value = c.Value })
                 }
             };
+        }
+
+        private async Task<ResponseMessage> RegisterUser(UserRegister userRegister)
+        {
+            var user = await _userManager.FindByEmailAsync(userRegister.Email);
+
+            var address = new Address(userRegister.Address.StreetName, userRegister.Address.Number, userRegister.Address.Neighborhood,
+                userRegister.Address.City, userRegister.Address.State, userRegister.Address.ZipCode);
+
+            var family = new Family(userRegister.Family.Name, userRegister.Family.Description, userRegister.Family.Type);
+
+            var registeredUser = new UserRegisteredIntegrationEvent(user.Id, userRegister.Name, userRegister.LastName,
+                userRegister.BirthDate, userRegister.Email, userRegister.PhoneNumber, userRegister.PersonRegister, userRegister.Person, address, family);
+
+            _bus = RabbitHutch.CreateBus(connectionString: "host=localhost:5672");
+
+            var success = await _bus.Rpc.RequestAsync<UserRegisteredIntegrationEvent, ResponseMessage>(registeredUser);
+
+            return success;
         }
 
         private static long ToUnixEpochDate(DateTime date)

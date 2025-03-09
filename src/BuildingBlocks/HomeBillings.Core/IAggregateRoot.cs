@@ -1,6 +1,6 @@
 ﻿namespace HomeBillings.Core
 {
-    public class Class1
+    public interface IAggregateRoot
     {
 
     }

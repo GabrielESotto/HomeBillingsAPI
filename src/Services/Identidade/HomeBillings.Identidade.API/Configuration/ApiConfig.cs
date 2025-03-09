@@ -4,6 +4,17 @@
     {
         public static IServiceCollection AddApiConfiguration(this IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "Origins",
+                    policy =>
+                    {
+                        policy.WithOrigins("*")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
             services.AddEndpointsApiExplorer();
 
@@ -13,6 +24,8 @@
         public static WebApplicationBuilder UseApiConfiguration(this WebApplicationBuilder builder)
         {
             var app = builder.Build();
+
+            app.UseCors("Origins");
 
             if (app.Environment.IsDevelopment())
             {
